@@ -1,0 +1,17 @@
+{
+  "name": "happy-pet-harbor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Happy Pet Harbor storefront, customer accounts and account cart",
+  "scripts": {
+    "dev": "wrangler dev --config wrangler.jsonc",
+    "deploy": "wrangler deploy --config wrangler.jsonc",
+    "db:migrate:local": "wrangler d1 execute happy-pet-harbor-shop --local --file=schema.sql",
+    "db:migrate:remote": "wrangler d1 execute happy-pet-harbor-shop --remote --file=schema.sql",
+    "test": "python3 tests/shop-flow.py"
+  },
+  "devDependencies": {
+    "wrangler": "4.148.0"
+  }
+}
