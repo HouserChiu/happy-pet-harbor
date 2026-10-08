@@ -12,3 +12,5 @@ ops/
 *.log
 .DS_Store
 __pycache__/
+
+preview-auth-*.html
