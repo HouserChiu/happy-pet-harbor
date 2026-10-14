@@ -142,3 +142,5 @@ footer{max-width:1440px;margin:auto;padding:56px 6% 32px;border-top:1px solid va
 .account-card p{font-size:14px;color:#526158;margin:0 0 16px;max-width:none}
 .account-card .text-link{font-size:14px}
 @media(max-width:860px){.account-cards{grid-template-columns:1fr;gap:14px;margin:26px 0 36px}}
+
+.buy-now{margin-top:28px;border-top:1px solid var(--line);padding-top:22px}.buy-now h2{font-size:22px;margin:0 0 8px}.buy-now-buttons{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}.buy-now .button{gap:12px}
