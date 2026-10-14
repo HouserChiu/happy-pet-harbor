@@ -144,3 +144,5 @@ footer{max-width:1440px;margin:auto;padding:56px 6% 32px;border-top:1px solid va
 @media(max-width:860px){.account-cards{grid-template-columns:1fr;gap:14px;margin:26px 0 36px}}
 
 .buy-now{margin-top:28px;border-top:1px solid var(--line);padding-top:22px}.buy-now h2{font-size:22px;margin:0 0 8px}.buy-now-buttons{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}.buy-now .button{gap:12px}
+
+.buy-now .buy-pink,.buy-now .buy-green{display:none}.product-layout:has(#color-pink:checked) .buy-now .buy-blue,.product-layout:has(#color-green:checked) .buy-now .buy-blue{display:none}.product-layout:has(#color-pink:checked) .buy-now .buy-pink,.product-layout:has(#color-green:checked) .buy-now .buy-green{display:inline-flex}
