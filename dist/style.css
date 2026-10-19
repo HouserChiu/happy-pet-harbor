@@ -560,7 +560,8 @@ label[for="color-blue"] { --dot: #4f9dd1; }
 label[for="color-pink"] { --dot: #ef9db8; }
 label[for="color-green"] { --dot: #a4d65e; }
 .leash-gallery label:hover { border-color: var(--pine); color: var(--pine); }
-.leash-gallery input:checked + label {
+.leash-gallery .pill-link { text-decoration: none; }
+.leash-gallery input:checked + .pill-link label {
   background: var(--pine);
   border-color: var(--pine);
   color: #fff;
@@ -576,7 +577,7 @@ label[for="color-green"] { --dot: #a4d65e; }
   grid-template-columns: 1fr;
   gap: 0;
 }
-.leash-photos figure { margin: 0; display: block; }
+.leash-photos figure { margin: 0; display: block; scroll-margin-top: 90px; }
 .leash-photos figure + figure { border-top: 1px solid var(--line-soft); }
 .leash-photos img { display: block; width: 100%; height: auto; background: #fbfaf7; }
 .leash-photos figcaption {
