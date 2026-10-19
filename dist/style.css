@@ -560,8 +560,8 @@ label[for="color-blue"] { --dot: #4f9dd1; }
 label[for="color-pink"] { --dot: #ef9db8; }
 label[for="color-green"] { --dot: #a4d65e; }
 .leash-gallery label:hover { border-color: var(--pine); color: var(--pine); }
-.leash-gallery .pill-link { text-decoration: none; }
-.leash-gallery input:checked + .pill-link label {
+.leash-gallery .pill-link { text-decoration: none; color: inherit; }
+.leash-gallery input:checked + label {
   background: var(--pine);
   border-color: var(--pine);
   color: #fff;
