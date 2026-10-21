@@ -51,6 +51,14 @@ Product videos: `dist/assets/videos/leash-colors.mp4` (12 s landscape) and `leas
 
 2026-10-08: User approved the proposed policies. Added terms/user agreement, shipping, payment/billing, returns/refunds, and support pages; refreshed privacy. Processing 1–3 business days; contiguous-US transit 3–7 business days; AK/HI and special addresses require pre-purchase confirmation. Returns requested within 30 calendar days of receipt; unused/unwashed with original packaging for change-of-mind; buyer pays change-of-mind return postage, seller covers defective/damaged/wrong items; approved refunds initiated in 3–5 business days after return inspection (or approval if no return required), bank posting time varies. All pages identify Happy Pet Harbor and RaeHouser Trading LLC. Payment link remains unconnected.
 
+## Redesign — 2026-10-22
+
+New visual system and page layouts (cream/ink palette, tangerine accent, Manrope 800 display + DM Sans body; Manrope 400 file no longer referenced). Homepage: hero with color tiles, trust strip, shop-by-color cards, features, spec band, story, shipping/returns cards, FAQ, contact band. Product page: single-image stage with color thumbnails (CSS radios), sticky buy box with per-color Stripe button, specs/delivery accordions, horizontal detail-image rail, videos. `/products/padded-rope-leash/#blue|#pink|#green` preselects a color (small inline script). Policy pages keep their text unchanged, inside a shared policy sidebar layout. Worker-rendered account/cart pages use the same header/footer (`header`/`footer` constants in `src/worker.mjs`).
+
+Derived display assets (originals untouched): `rope-leash-green-studio.jpg` (green photo with the grey backdrop lifted to white, so it blends on tinted tiles) and `leash-in-hand.jpg` (centre crop of `detail-craftsmanship.webp` without the supplier caption text).
+
+Note: two checks in `tests/shop-flow.py` predate later Worker changes (recipient name is shown on `/account/address`, not `/account/`; the checkout page no longer says "No order or charge"). With those two expectations updated, all 24 checks pass locally.
+
 ## Customer accounts and carts
 
 Worker entry: `src/worker.mjs`; schema: `schema.sql`; dedicated D1 database `happy-pet-harbor-shop`. Public browsing and color selection remain static. Same-origin POST forms handle registration/login, server-backed account cart, address save/delete, password change and logout. Passwords use native scrypt (N=32768, r=8, p=3), random salt; sessions use random tokens stored as hashes, 14-day Secure/HttpOnly/SameSite cookies. Auth/action throttling and origin checks protect mutations. Prices are server-controlled ($5 USD). Payments and paid orders remain unconnected. No email verification/reset provider exists; UI states this explicitly.
