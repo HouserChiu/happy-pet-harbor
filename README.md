@@ -45,7 +45,7 @@ Product preview: `/products/padded-rope-leash/`. User-supplied blue, pink and gr
 
 2026-09-25 update: User confirmed $5.00 USD, 1.5 m length, 1.0 cm width, free shipping and dispatch from Addison, Illinois, USA. Public copy uses city/state only. Delivery destinations, inventory, timing, returns and payment provider remain unconfirmed; checkout stays closed. These details supersede the earlier pending price and size notes.
 
-Product videos: `dist/assets/videos/leash-colors.mp4` (12 s landscape) and `leash-portrait.mp4` (9 s portrait), composed from the user-provided JPG photos with gentle motion and fades. Silent H.264 MP4, native player controls, no autoplay; explicitly labeled photo-based rather than live product demonstrations.
+Product videos: `dist/assets/videos/leash-rotate.mp4` (three-color studio showcase) and `leash-sway.mp4` (handle and clasp close-up), both user-provided 720×1280 portrait (10 s and 6 s) H.264/AAC MP4 with audio, posters at `dist/assets/video-poster-*.jpg`. Native player controls, no autoplay; labeled as product showcase videos rather than live-use demonstrations.
 
 2026-09-26: Removed pre-launch messaging across public pages at user request. Website presents the current collection and email purchase enquiries. Checkout remains unconnected; no inventory or delivery guarantees were added.
 
