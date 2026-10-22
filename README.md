@@ -7,8 +7,8 @@ Pre-launch pet supplies website for RaeHouser Trading LLC.
 - Planned expansion: pet hair removal supplies and other pet accessories
 - Hosting: Cloudflare Workers Static Assets, worker `happy-pet-harbor`
 - Live URL: https://raehouser.com
-- Alternate URL: https://www.raehouser.com
-- Workers URL: https://happy-pet-harbor.8jtsnkvbf9515.workers.dev
+- Alternate URL: https://www.raehouser.com (301-redirects to https://raehouser.com, handled in `src/worker.mjs`)
+- Workers URL: disabled (`workers_dev: false`) so only the canonical domain is indexed
 - Custom domains configured: raehouser.com and www.raehouser.com
 - Cloudflare zone and certificates active; HTTPS verified on both custom domains. HTTP automatically redirects to HTTPS.
 
