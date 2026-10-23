@@ -756,3 +756,11 @@ footer .brand { color: #fff; }
 @media (max-width: 600px) { .preview em { display: none; } }
 .auth-side-img { background: #fff; }
 .shop-page > .text-link { margin-bottom: 18px; }
+
+.offer-banner {
+  background: var(--accent-soft); color: #7a2a10;
+  padding: 10px 16px; text-align: center; font-size: 14.5px; line-height: 1.5;
+}
+.offer-banner strong { margin-right: 6px; }
+.offer-banner code { background: #fff; border-radius: 6px; padding: 1px 6px; font-weight: 700; letter-spacing: .04em; }
+.offer-banner a { color: inherit; text-decoration: underline; }

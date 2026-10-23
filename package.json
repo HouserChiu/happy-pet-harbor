@@ -9,7 +9,8 @@
     "deploy": "wrangler deploy --config wrangler.jsonc",
     "db:migrate:local": "wrangler d1 execute happy-pet-harbor-shop --local --file=schema.sql",
     "db:migrate:remote": "wrangler d1 execute happy-pet-harbor-shop --remote --file=schema.sql",
-    "test": "python3 tests/shop-flow.py"
+    "test": "python3 tests/shop-flow.py",
+    "stats": "wrangler d1 execute happy-pet-harbor-shop --remote --command \"SELECT day,name,count FROM events WHERE day>=date('now','-14 day') ORDER BY day DESC,name\""
   },
   "devDependencies": {
     "wrangler": "4.148.0"

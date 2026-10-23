@@ -57,7 +57,7 @@ New visual system and page layouts (cream/ink palette, tangerine accent, Manrope
 
 Derived display assets (originals untouched): `rope-leash-green-studio.jpg` (green photo with the grey backdrop lifted to white, so it blends on tinted tiles) and `leash-in-hand.jpg` (centre crop of `detail-craftsmanship.webp` without the supplier caption text).
 
-Note: two checks in `tests/shop-flow.py` predate later Worker changes (recipient name is shown on `/account/address`, not `/account/`; the checkout page no longer says "No order or charge"). With those two expectations updated, all 24 checks pass locally.
+Note: the two stale expectations in `tests/shop-flow.py` were updated on 2026-10-23.
 
 ## Customer accounts and carts
 
@@ -72,3 +72,17 @@ Validation: 24 functional checks passed locally and against https://raehouser.co
 Repository: https://github.com/HouserChiu/happy-pet-harbor
 
 Install dependencies with `npm ci`. Start with `npm run dev`; deploy with `npm run deploy`. This checkout is independent of invest-tools. Cloudflare Worker, custom domains and production database remain unchanged.
+
+## Checkout funnel, Stripe webhook and come-back offer — 2026-10-23
+
+All buy buttons (product page and `/checkout/`) go through `/checkout/pay?color=…`, which counts the click and redirects to the color's Stripe Payment Link. For signed-in customers it appends `client_reference_id=<customer id>_<color>` and `prefilled_email`, plus `prefilled_promo_code` when an offer is active.
+
+Funnel counters (daily, no personal data) live in the `events` table: `cart_add`, `checkout_view_address`, `checkout_view_no_address`, `pay_click`, `pay_click_guest`, `paid`, `paid_with_discount`, `offer_issued`. View the last 14 days with `npm run stats`.
+
+`POST /stripe/webhook` verifies the Stripe signature and, on a paid `checkout.session.completed`, stores the order (`orders`: Stripe session id, customer id, color, amount, discount) and removes that color from the customer's account cart. Without `STRIPE_WEBHOOK_SECRET` it answers 503 and the checkout page keeps the "cart will not clear automatically" note.
+
+Come-back offer: if a signed-in customer with a saved address clicked a pay button, still has items in the cart and has no paid order 1 hour later, their next page view creates a single-use $0.50 Stripe promotion code that expires 48 hours later and shows it in a banner on every page (static pages via HTMLRewriter). One offer per customer, ever. It requires `STRIPE_SECRET_KEY` (restricted key, Promotion Codes write) and `STRIPE_COUPON_ID` (a $0.50 USD, duration "once" coupon); without them no offer is shown. Each Payment Link must have "Allow promotion codes" enabled.
+
+Setup: `npm run db:migrate:remote`, then `npx wrangler secret put STRIPE_WEBHOOK_SECRET` / `STRIPE_SECRET_KEY` / `STRIPE_COUPON_ID`. Webhook endpoint: `https://raehouser.com/stripe/webhook`, event `checkout.session.completed`. Tests: `HPH_WEBHOOK_SECRET=… python3 tests/shop-flow.py` also exercises a signed webhook (29 checks locally; set `NO_PROXY=localhost` if a proxy is configured).
+
+Reminder email (Resend): a `*/15 * * * *` cron finds the same due customers, issues the offer and sends one email per customer from `hello@raehouser.com` (reply-to houserchiu@gmail.com) with `List-Unsubscribe` one-click headers; `/email/unsubscribe?t=…` opts out (`email_prefs`). It stays off until both secrets exist: `RESEND_API_KEY` and `MAIL_POSTAL_ADDRESS` (full postal address, required by CAN-SPAM in the footer). raehouser.com must be verified in Resend (DKIM `resend._domainkey` TXT and the `send` MX/SPF records in Cloudflare DNS). Counter: `offer_emailed`. Privacy notice updated 2026-10-23 for Stripe order records, Cloudflare Web Analytics, store-step counters and reminder emails.
