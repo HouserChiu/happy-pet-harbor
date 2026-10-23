@@ -44,7 +44,10 @@ async function stripeWebhook(req,env){if(!env.STRIPE_WEBHOOK_SECRET)return new R
  if(!t||Math.abs(Date.now()/1000-Number(t))>300||![...sig.matchAll(/(?:^|,)v1=([a-f0-9]{64})/g)].some(m=>timingSafeEqual(Buffer.from(m[1]),expected)))return new Response('Bad signature',{status:400});
  const ev=JSON.parse(raw),s=ev.data?.object;
  if(ev.type==='checkout.session.completed'&&s?.payment_status==='paid'){const ref=/^([0-9a-f-]{36})_(blue|pink|green)$/.exec(s.client_reference_id||'');const cid=ref?await env.DB.prepare('SELECT id FROM customers WHERE id=?').bind(ref[1]).first('id'):null;const discount=s.total_details?.amount_discount||0;
-  if((await env.DB.prepare('INSERT INTO orders(session_id,customer_id,color,amount,discount,created_at) VALUES(?,?,?,?,?,?) ON CONFLICT DO NOTHING').bind(s.id,cid,ref?.[2]??null,s.amount_total||0,discount,Date.now()).run()).meta.changes){
+  // Shipping address from the Payment Link (collected_information since API 2025-03-31, shipping_details before); phone falls back to the saved account address.
+  const ship=s.collected_information?.shipping_details||s.shipping_details||{},ad=ship.address||{},cd=s.customer_details||{};
+  const phone=cd.phone||(cid&&await env.DB.prepare('SELECT phone FROM addresses WHERE customer_id=?').bind(cid).first('phone'))||null;
+  if((await env.DB.prepare('INSERT INTO orders(session_id,customer_id,color,amount,discount,created_at,email,ship_name,ship_line1,ship_line2,ship_city,ship_state,ship_zip,ship_country,phone) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT DO NOTHING').bind(s.id,cid,ref?.[2]??null,s.amount_total||0,discount,Date.now(),cd.email??null,ship.name??cd.name??null,ad.line1??null,ad.line2??null,ad.city??null,ad.state??null,ad.postal_code??null,ad.country??null,phone).run()).meta.changes){
    if(cid)await env.DB.batch([env.DB.prepare('DELETE FROM cart WHERE customer_id=? AND color=?').bind(cid,ref[2]),env.DB.prepare('DELETE FROM checkout_starts WHERE customer_id=?').bind(cid)]);
    await track(env,discount?'paid_with_discount':'paid')}}
  return new Response('ok')}

@@ -10,7 +10,8 @@
     "db:migrate:local": "wrangler d1 execute happy-pet-harbor-shop --local --file=schema.sql",
     "db:migrate:remote": "wrangler d1 execute happy-pet-harbor-shop --remote --file=schema.sql",
     "test": "python3 tests/shop-flow.py",
-    "stats": "wrangler d1 execute happy-pet-harbor-shop --remote --command \"SELECT day,name,count FROM events WHERE day>=date('now','-14 day') ORDER BY day DESC,name\""
+    "stats": "wrangler d1 execute happy-pet-harbor-shop --remote --command \"SELECT day,name,count FROM events WHERE day>=date('now','-14 day') ORDER BY day DESC,name\"",
+    "orders": "wrangler d1 execute happy-pet-harbor-shop --remote --command \"SELECT datetime(created_at/1000,'unixepoch') AS paid_utc,color,amount,discount,ship_name,ship_line1,ship_line2,ship_city,ship_state,ship_zip,ship_country,phone,email FROM orders ORDER BY created_at DESC LIMIT 50\""
   },
   "devDependencies": {
     "wrangler": "4.148.0"

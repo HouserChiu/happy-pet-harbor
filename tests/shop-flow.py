@@ -49,7 +49,7 @@ status,h,_=c.call('/checkout/pay?color=pink');ref=re.search(r'client_reference_i
 status=Client().call('/stripe/webhook',b'{}',extra={'Content-Type':'application/json','Stripe-Signature':'t=1,v1='+'0'*64})[0];expect(status in (400,503),'unsigned webhook rejected')
 secret=os.environ.get('HPH_WEBHOOK_SECRET')
 if secret:
- ev=json.dumps({'type':'checkout.session.completed','data':{'object':{'id':'cs_test_'+tag,'payment_status':'paid','client_reference_id':ref.group(1),'amount_total':1500,'total_details':{'amount_discount':0}}}});t=str(int(time.time()))
+ ev=json.dumps({'type':'checkout.session.completed','data':{'object':{'id':'cs_test_'+tag,'payment_status':'paid','client_reference_id':ref.group(1),'amount_total':1500,'total_details':{'amount_discount':0},'customer_details':{'email':em,'name':'QA Recipient','phone':None},'collected_information':{'shipping_details':{'name':'QA Recipient','address':{'line1':'1 Test St','line2':None,'city':'Addison','state':'IL','postal_code':'60101','country':'US'}}}}}});t=str(int(time.time()))
  sig=hmac.new(secret.encode(),(t+'.'+ev).encode(),hashlib.sha256).hexdigest()
  expect(Client().call('/stripe/webhook',ev.encode(),extra={'Content-Type':'application/json','Stripe-Signature':'t='+t+',v1='+sig})[0]==200,'signed webhook accepted')
  expect('Your cart is empty' in c.call('/cart/')[2],'paid color removed from account cart')
