@@ -772,3 +772,8 @@ footer .brand { color: #fff; }
 .guide-figure { margin: 8px 0 24px; }
 .guide-figure img { width: 100%; max-width: 420px; height: auto; border-radius: 16px; background: var(--sand); }
 .guide-figure figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.table-wrap { overflow-x: auto; margin: 8px 0 8px; }
+.document table { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+.document th, .document td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line-2); color: var(--ink-2); line-height: 1.55; }
+.document thead th { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.document tbody th { color: var(--ink); white-space: nowrap; }
