@@ -764,3 +764,11 @@ footer .brand { color: #fff; }
 .offer-banner strong { margin-right: 6px; }
 .offer-banner code { background: #fff; border-radius: 6px; padding: 1px 6px; font-weight: 700; letter-spacing: .04em; }
 .offer-banner a { color: inherit; text-decoration: underline; }
+
+/* Guides */
+.document h3 { font-size: 18px; letter-spacing: -.01em; margin: 28px 0 8px; }
+.document ol { padding-left: 22px; }
+.document h2[id] { scroll-margin-top: 100px; }
+.guide-figure { margin: 8px 0 24px; }
+.guide-figure img { width: 100%; max-width: 420px; height: auto; border-radius: 16px; background: var(--sand); }
+.guide-figure figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
