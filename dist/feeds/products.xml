@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Happy Pet Harbor</title>
+    <link>https://raehouser.com/</link>
+    <description>Happy Pet Harbor product feed</description>
+    <item>
+      <g:id>PRL-BLUE</g:id>
+      <g:item_group_id>PRL</g:item_group_id>
+      <title>Padded Handle Rope Dog Leash, 5 ft Reflective – Blue</title>
+      <description>A 5 ft (1.5 m) braided nylon dog leash for medium and large dogs, about 20–75 lb (10–35 kg). Reflective along its full length, with a padded foam loop handle and a rotating zinc alloy clip that attaches to a collar or harness. 3/8 in (1.0 cm) wide, weighs 133 g (4.7 oz). Free shipping to the contiguous US; 30-day returns.</description>
+      <link>https://raehouser.com/products/padded-rope-leash/?color=blue</link>
+      <g:image_link>https://raehouser.com/assets/rope-leash-blue.jpg</g:image_link>
+      <g:additional_image_link>https://raehouser.com/assets/detail-foam-handle.webp</g:additional_image_link>
+      <g:additional_image_link>https://raehouser.com/assets/detail-reflective.webp</g:additional_image_link>
+      <g:additional_image_link>https://raehouser.com/assets/leash-in-hand.jpg</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>5.00 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Happy Pet Harbor</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:color>Blue</g:color>
+      <g:material>Nylon</g:material>
+      <g:product_type>Dog Supplies &gt; Leashes</g:product_type>
+      <g:product_length>1.5 m</g:product_length>
+      <g:product_width>1.0 cm</g:product_width>
+      <g:product_weight>133 g</g:product_weight>
+      <g:shipping_weight>133 g</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>PRL-PINK</g:id>
+      <g:item_group_id>PRL</g:item_group_id>
+      <title>Padded Handle Rope Dog Leash, 5 ft Reflective – Pink</title>
+      <description>A 5 ft (1.5 m) braided nylon dog leash for medium and large dogs, about 20–75 lb (10–35 kg). Reflective along its full length, with a padded foam loop handle and a rotating zinc alloy clip that attaches to a collar or harness. 3/8 in (1.0 cm) wide, weighs 133 g (4.7 oz). Free shipping to the contiguous US; 30-day returns.</description>
+      <link>https://raehouser.com/products/padded-rope-leash/?color=pink</link>
+      <g:image_link>https://raehouser.com/assets/rope-leash-pink.jpg</g:image_link>
+      <g:additional_image_link>https://raehouser.com/assets/detail-foam-handle.webp</g:additional_image_link>
+      <g:additional_image_link>https://raehouser.com/assets/detail-reflective.webp</g:additional_image_link>
+      <g:additional_image_link>https://raehouser.com/assets/leash-in-hand.jpg</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>5.00 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Happy Pet Harbor</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:color>Pink</g:color>
+      <g:material>Nylon</g:material>
+      <g:product_type>Dog Supplies &gt; Leashes</g:product_type>
+      <g:product_length>1.5 m</g:product_length>
+      <g:product_width>1.0 cm</g:product_width>
+      <g:product_weight>133 g</g:product_weight>
+      <g:shipping_weight>133 g</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>PRL-GREEN</g:id>
+      <g:item_group_id>PRL</g:item_group_id>
+      <title>Padded Handle Rope Dog Leash, 5 ft Reflective – Lime green</title>
+      <description>A 5 ft (1.5 m) braided nylon dog leash for medium and large dogs, about 20–75 lb (10–35 kg). Reflective along its full length, with a padded foam loop handle and a rotating zinc alloy clip that attaches to a collar or harness. 3/8 in (1.0 cm) wide, weighs 133 g (4.7 oz). Free shipping to the contiguous US; 30-day returns.</description>
+      <link>https://raehouser.com/products/padded-rope-leash/?color=green</link>
+      <g:image_link>https://raehouser.com/assets/rope-leash-green.jpg</g:image_link>
+      <g:additional_image_link>https://raehouser.com/assets/detail-foam-handle.webp</g:additional_image_link>
+      <g:additional_image_link>https://raehouser.com/assets/detail-reflective.webp</g:additional_image_link>
+      <g:additional_image_link>https://raehouser.com/assets/leash-in-hand.jpg</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>5.00 USD</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Happy Pet Harbor</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:color>Lime green</g:color>
+      <g:material>Nylon</g:material>
+      <g:product_type>Dog Supplies &gt; Leashes</g:product_type>
+      <g:product_length>1.5 m</g:product_length>
+      <g:product_width>1.0 cm</g:product_width>
+      <g:product_weight>133 g</g:product_weight>
+      <g:shipping_weight>133 g</g:shipping_weight>
+    </item>
+  </channel>
+</rss>
